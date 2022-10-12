@@ -1,0 +1,8 @@
+.profile__avatar-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile__avatar-container:hover > .profile__avatar-overlay {
+    visibility: visible;
+}

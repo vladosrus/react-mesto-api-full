@@ -1,0 +1,9 @@
+.popup__success-image {
+  margin: 26px 0px 32px;
+}
+
+@media (max-width: 468px) {
+  .popup__success-image {
+    margin-top: 25px;
+  }
+}

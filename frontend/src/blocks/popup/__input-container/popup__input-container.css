@@ -1,0 +1,9 @@
+.popup__input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.popup__input-container:nth-child(2) {
+    margin-bottom: 38.5px;
+}

@@ -1,0 +1,13 @@
+.header__container {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  gap: 24px;
+  max-height: 33px;
+}
+
+@media (max-width: 747px) {
+  .header__container {
+    align-items: center;
+  }
+}

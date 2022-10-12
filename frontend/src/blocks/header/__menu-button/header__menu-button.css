@@ -1,0 +1,8 @@
+.header__menu-button {
+  min-width: 24px;
+  min-height: 21px;
+  margin-right: 30px;
+  background-image: url(../../../images/header__menu-button.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}

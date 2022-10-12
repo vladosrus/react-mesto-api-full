@@ -1,0 +1,9 @@
+.entrance-pages {
+  padding-top: 60px;
+}
+
+@media (max-width: 418px) {
+  .entrance-pages {
+    padding-top: 40px;
+  }
+}

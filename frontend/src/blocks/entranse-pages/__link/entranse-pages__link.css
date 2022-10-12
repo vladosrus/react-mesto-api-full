@@ -1,0 +1,9 @@
+.entrance-pages__link {
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.entrance-pages__link:hover {
+  opacity: 0.6;
+}

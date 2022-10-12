@@ -1,0 +1,10 @@
+.entrance-pages__form {
+  max-width: 358px;
+  margin: 0px auto;
+}
+
+@media (max-width: 418px) {
+  .entrance-pages__form {
+    max-width: 260px;
+  }
+}
