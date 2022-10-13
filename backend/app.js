@@ -14,6 +14,7 @@ const { errors } = require('celebrate');
 // Мидлвэры
 const error = require('./middlewares/error');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors');
 
 // Роутеры
 const routerUsers = require('./routes/users');
@@ -27,6 +28,7 @@ mongoose.connect(MONGODB_URL, {
   useNewUrlParser: true,
 });
 
+app.use(cors);
 app.use(bodyParser.json());
 app.use(cookieParser());
 

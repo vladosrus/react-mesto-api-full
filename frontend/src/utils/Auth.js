@@ -1,4 +1,4 @@
-const baseURL = "https://auth.nomoreparties.co";
+import { baseURL, headers } from './Api'
 
 function checkResponse(result) {
   if (result.ok) {
@@ -11,9 +11,7 @@ function checkResponse(result) {
 export function registration (email, password) {
   return fetch(`${baseURL}/signup`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers: headers,
     body: JSON.stringify({email, password})
   })
   .then(checkResponse)
@@ -22,21 +20,16 @@ export function registration (email, password) {
 export function authorization (email, password) {
   return fetch(`${baseURL}/signin`, {
     method: "POST",
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers: headers,
     body: JSON.stringify({email, password})
   })
   .then(checkResponse)
 }
 
-export function getEmail (token) {
+export function getEmail () {
   return fetch(`${baseURL}/users/me`, {
     method: "GET",
-    headers: {
-      'Content-Type': 'application/json',
-      "Authorization" : `Bearer ${token}`
-    }
+    headers: headers,
   })
   .then(checkResponse)
 }

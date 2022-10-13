@@ -80,12 +80,14 @@ class Api {
   }
 }
 
+export const baseURL = "https://api.mesto-chikov.students.nomoredomains.icu";
+export const headers = {
+  'Content-Type': 'application/json',
+  'origin': baseURL,
+};
 const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-44",
-  headers: {
-    authorization: "4b7b5dd1-c14a-477d-bd33-50408ed7db39",
-    "Content-Type": "application/json",
-  },
+  baseUrl: baseURL,
+  headers: headers,
 });
 
 export default api;
