@@ -1,4 +1,4 @@
-const { BAD_REQUEST = 400 } = process.env;
+const { BAD_REQUEST } = process.env;
 
 class BadRequestError extends Error {
   constructor(message) {

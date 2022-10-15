@@ -1,4 +1,4 @@
-const { FORBIDDEN = 403 } = process.env;
+const { FORBIDDEN } = process.env;
 
 class ForbiddenError extends Error {
   constructor(message) {

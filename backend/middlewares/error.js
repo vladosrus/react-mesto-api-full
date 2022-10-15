@@ -1,4 +1,4 @@
-const { INTERNAL_SERVER_ERROR = 500 } = process.env;
+const { INTERNAL_SERVER_ERROR } = process.env;
 
 // eslint-disable-next-line no-unused-vars
 module.exports = (err, req, res, next) => {

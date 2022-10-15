@@ -5,7 +5,7 @@ const express = require('express');
 
 const app = express();
 
-const { PORT = 3000, MONGODB_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
+const { PORT, MONGODB_URL } = process.env;
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');

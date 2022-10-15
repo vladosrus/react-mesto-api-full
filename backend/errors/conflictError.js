@@ -1,4 +1,4 @@
-const { CONFLICT = 409 } = process.env;
+const { CONFLICT } = process.env;
 
 class ConflictError extends Error {
   constructor(message) {

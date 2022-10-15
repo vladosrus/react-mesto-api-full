@@ -7,18 +7,18 @@ const ConflictError = require('../errors/conflictError');
 const BadRequestError = require('../errors/badRequestError');
 const NotFoundError = require('../errors/notFoundError');
 
-const {
-  JWT_SECRET_KEY = '96b89123393ce1397adc6912af9a95f43990e6db1b6c5d5f7c40444bd9e0fe52',
-} = process.env;
+const { NODE_ENV, JWT_SECRET_KEY } = process.env;
 
 const login = (req, res, next) => {
   const { email, password } = req.body;
 
   User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, JWT_SECRET_KEY, {
-        expiresIn: '7d',
-      });
+      const token = jwt.sign(
+        { _id: user._id },
+        NODE_ENV === 'production' ? JWT_SECRET_KEY : 'dev-secret',
+        { expiresIn: '7d' },
+      );
       res
         .cookie('jwt', token, {
           maxAge: 3600000 * 24 * 7,
