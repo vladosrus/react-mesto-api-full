@@ -1,4 +1,5 @@
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 // Создание сервера
 const express = require('express');
@@ -50,4 +51,4 @@ app.use(errorLogger);
 app.use(errors());
 app.use(error);
 
-app.listen(PORT);
+app.listen(PORT, () => console.log(PORT));
