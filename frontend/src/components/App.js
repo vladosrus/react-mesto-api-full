@@ -204,7 +204,7 @@ export default function App() {
     if (token) {
       Auth.getEmail(token)
         .then((res) => {
-          setUserEmail(res.data.email);
+          setUserEmail(res.email);
           successLogin();
         })
         .catch((error) => {
