@@ -48,7 +48,7 @@ const deleteCard = (req, res, next) => {
 const likeCard = (req, res, next) => {
   Card.findByIdAndUpdate(
     req.params.cardId,
-    { $addToSet: { likes: req.user } },
+    { $addToSet: { likes: req.user._id } },
     { new: true, runValidators: true },
   )
     .orFail(new NotFoundError('Объект c указанным _id не найден'))
@@ -65,7 +65,7 @@ const likeCard = (req, res, next) => {
 const dislikeCard = (req, res, next) => {
   Card.findByIdAndUpdate(
     req.params.cardId,
-    { $pull: { likes: req.user } },
+    { $pull: { likes: req.user._id } },
     { new: true, runValidators: true },
   )
     .orFail(new NotFoundError('Объект c указанным _id не найден'))
