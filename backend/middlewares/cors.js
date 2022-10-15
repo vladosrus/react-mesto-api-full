@@ -1,6 +1,8 @@
 const allowedCors = [
   'https://mesto-chikov.students.nomoredomains.icu',
+  'http://mesto-chikov.students.nomoredomains.icu',
   'http://localhost:3000',
+  'https://localhost:3000',
 ];
 const allowedMethods = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
@@ -11,6 +13,7 @@ module.exports = (req, res, next) => {
 
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Credentials', true);
   }
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', allowedMethods);

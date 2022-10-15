@@ -140,8 +140,9 @@ export default function App() {
   }
 
   function handleDeleteCard(card) {
+    const token = localStorage.getItem("token");
     api
-      .deleteCard(card._id)
+      .deleteCard(card._id, token)
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== card._id));
         closeAllPopups();
