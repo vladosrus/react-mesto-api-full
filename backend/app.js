@@ -1,5 +1,5 @@
 const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '.env') });
+require('dotenv').config({ path: path.join(__dirname, '/.env') });
 
 // Создание сервера
 const express = require('express');
@@ -47,8 +47,10 @@ app.use('*', routerError);
 // Логгер ошибок
 app.use(errorLogger);
 
+console.log(`Из переменных окружения Порт: ${PORT}, Адрес mongo: ${MONGODB_URL}`);
+
 // Централизованный обработчик ошибок (основные ошибки + celebrate)
 app.use(errors());
 app.use(error);
 
-app.listen(PORT, () => console.log(PORT));
+app.listen(PORT);
