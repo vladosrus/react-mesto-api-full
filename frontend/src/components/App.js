@@ -178,7 +178,6 @@ export default function App() {
     Auth.registration(email, password)
       .then((res) => {
         successRegistration();
-        console.log(res);
       })
       .catch((err) => {
         unsuccessAction();
