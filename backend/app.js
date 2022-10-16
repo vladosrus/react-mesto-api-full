@@ -6,7 +6,7 @@ const express = require('express');
 
 const app = express();
 
-const { PORT, MONGODB_URL } = process.env;
+const { PORT = 3000, MONGODB_URL } = process.env;
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -36,6 +36,11 @@ app.use(cookieParser());
 // Логгер запросов
 app.use(requestLogger);
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.use('/', routerSignUp);
 app.use('/', routerSignIn);
 app.use('/', routerUsers);
@@ -46,8 +51,6 @@ app.use('*', routerError);
 
 // Логгер ошибок
 app.use(errorLogger);
-
-console.log(`Из переменных окружения Порт: ${PORT}, Адрес mongo: ${MONGODB_URL}`);
 
 // Централизованный обработчик ошибок (основные ошибки + celebrate)
 app.use(errors());
