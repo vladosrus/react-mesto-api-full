@@ -36,11 +36,13 @@ app.use(cookieParser());
 // Логгер запросов
 app.use(requestLogger);
 
+// Симулятор падения сервера
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
+
 app.use('/', routerSignUp);
 app.use('/', routerSignIn);
 app.use('/', routerUsers);
